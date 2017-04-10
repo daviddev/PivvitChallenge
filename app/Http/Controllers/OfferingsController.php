@@ -8,9 +8,27 @@ use App\Contracts\OfferingsInterface;
 
 class OfferingsController extends Controller
 {
-    public function getOfferings(OfferingsInterface $offeringsRepo)
+
+	/**
+    * Create a new instance of OfferingsController class.
+    *
+    * @return void
+    */
+	public function __construct(OfferingsInterface $offeringsRepo)
+	{
+		$this->offeringsRepo = $offeringsRepo;
+	}
+
+	/**
+	* Get all offerings
+	* GET /offerings
+	*
+	*
+	* @return json
+	*/
+    public function getOfferings()
     {
-    	$offerings = $offeringsRepo->getAll();
+    	$offerings = $this->offeringsRepo->getAll();
     	return response()->json(['offerings' => $offerings]);
     }
 }

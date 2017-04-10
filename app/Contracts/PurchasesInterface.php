@@ -12,7 +12,7 @@ interface PurchasesInterface
     public function getOne($id);
 
      /**
-     * Get List of all purchases.
+     * Get List of all purchases with offering
      *
      * @return Collection
      */
@@ -21,6 +21,7 @@ interface PurchasesInterface
     /**
      * Create purchase
      *
+     * @param array $data
      * @return purchase
      */
     public function create($data);

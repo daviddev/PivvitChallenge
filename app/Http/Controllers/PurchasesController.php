@@ -11,6 +11,11 @@ use App\Contracts\PurchasesInterface;
 
 class PurchasesController extends Controller
 {
+	/**
+    * Create a new instance of PurchasesController class.
+    *
+    * @return void
+    */
 	public function __construct(OfferingsInterface $offeringsRepo,
 								PurchasesInterface $purchasesRepo)
 	{
@@ -18,12 +23,25 @@ class PurchasesController extends Controller
 		$this->purchasesRepo = $purchasesRepo;
 	}
 
+    /**
+	* Get create purchase view
+	* GET  /
+	*
+	* @return view
+	*/
     public function index()
     {
-    	$offerings = $this->offeringsRepo->getAll();
-    	return view('purchase', compact('offerings'));
+    	return view('purchase');
     }
 
+    /**
+	* Add new purchase
+	* POST /purchases
+	*
+	* @param PurchaseRequest $request
+	*
+	* @return json
+	*/
     public function store(PurchaseRequest $request)
     {
     	$purchase = $this->purchasesRepo->create($request->all());
@@ -33,6 +51,12 @@ class PurchasesController extends Controller
     	return response()->json(['result' => 'success']);
     }
 
+    /**
+	* Get all purchases
+	* GET /purchases
+	*
+	* @return view
+	*/
     public function getAllPurchases()
     {
     	$purchases = $this->purchasesRepo->getAllWithOffering();

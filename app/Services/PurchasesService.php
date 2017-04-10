@@ -29,7 +29,7 @@ class PurchasesService implements PurchasesInterface
     }
 
     /**
-     * Get List of all purchases
+     * Get List of all purchases with offering
      *
      * @return Collection
      */
@@ -42,6 +42,7 @@ class PurchasesService implements PurchasesInterface
     /**
      * Create purchase
      *
+     * @param array $data
      * @return purchase
      */
     public function create($data)

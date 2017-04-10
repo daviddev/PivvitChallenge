@@ -15,7 +15,7 @@ class Purchase extends Model
         'customer_name', 'offering_id', 'quantity', 'total'
     ];
 
-    public function offering($value='')
+    public function offering()
     {
     	return $this->hasOne('App\Offering', 'id', 'offering_id');
     }

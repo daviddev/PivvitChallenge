@@ -12,7 +12,7 @@ interface OfferingsInterface
     public function getOne($id);
 
      /**
-     * Get List of all purchases.
+     * Get List of all offerings
      *
      * @return Collection
      */
